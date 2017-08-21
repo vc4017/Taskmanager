@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<project name="checkOperatingSystem" default="runsc">
+
+	<target name="r">
+		<exec dir="." executable="cmd" >
+			<arg line="/c git init"/>
+		</exec>
+	</target>
+	<target name="ru" depends="r">
+		<exec dir="." executable="cmd" >
+			<arg line="/c git remote add origin https://github.com/krishnateja1438/origin-.git"/>
+		</exec>
+	</target>
+	<target name="run" depends="ru">
+		<exec dir="." executable="cmd" >
+			<arg line="/c git add *"/>
+		</exec>
+	</target>
+	<target name="runs" depends="run">
+		<exec dir="." executable="cmd" >
+				<arg line="/c git commit -m"/>
+				<arg line="pushing node application Task Manager"/>
+		</exec>
+	</target>
+	<target name="runsc" depends="runs">
+		<exec dir="." executable="cmd" >
+			<arg line="/c git push -u origin master"/>
+		</exec>
+	</target>
+</project>

@@ -1,0 +1,141 @@
+<div ng-controller="employeeCtrl">
+<table bgcolor="white">
+<tr bgcolor="lightgreen">
+<td width="100px" align="center">
+<button ng-click="Profile()">Profile</button>
+</td>
+<td width="100px" align="center">
+<button ng-click="Search()">EmpSearch</button>
+</td>
+<td width="100px" ng-show="ngasignbutton" align="center">
+<button ng-click="AsignTask()">AssignTask</button>
+</td>
+<td width="100px" align="center">
+<button ng-model="list" ng-click="TaskList()">TaskList</button>
+</td>
+<td width="100px" align="center">
+<button ng-click="LogOut()">LogOut</button>
+</td>
+</tr>
+</table>
+<br><br>
+<div ng-show="ngasigntask" align="center">
+<select  ng-model="eid" >
+<option ng-repeat="i in asigntask" value="{{i.eid}}">{{i.eid}}</option>
+</select><br>
+<input type="text"  ng-model="asigningtask" placeholder="enter task" size="30"/><br>
+<input type="text"  ng-model="status" placeholder="status" size="30"/><br>
+<input type="text"  ng-model="comments" placeholder="comments"/ size="30"><br>
+<button  ng-click="AsignTaskInd()">enter</button>
+</div>
+
+<div ng-show="ngtasklist" align="center">
+<select ng-model="empid">
+<option ng-repeat="i in tasklist" value="{{i.eid}}">{{i.eid}}</option>
+</select><br>
+<button  ng-click="TaskListInd()">enter</button>
+</div>
+
+<input type="text" ng-show="ngsearch" ng-model="empname" placeholder="employee Search" size="20"/><br>
+<button ng-show="ngsearch" ng-click="EmpSearch()">search</button>
+
+
+
+<table ng-show="ngprofile" ng-repeat="i in profile" align="center">
+<tr>
+<td>firstname:</td><td>{{i.fname}}</td>
+</tr>
+<tr>
+<td>lastname:</td><td>{{i.lname}}</td>
+</tr>
+<tr>
+<td>employeeid:</td><td>{{i.eid}}</td>
+</tr>
+<tr>
+<td>role:</td><td>{{i.role}}</td>
+</tr>
+<tr>
+<td>project:</td><td>{{i.project}}</td>
+</tr>
+</table>
+
+
+<div ng-show="ngempsearch">
+<table  ng-repeat="i in empsearch" align="center">
+<tr>
+<td><b>EmpSearch:</b></td>
+</tr>
+<tr>
+<td>firstname:</td><td>{{i.fname}}</td>
+</tr>
+<tr>
+<td>lastname:</td><td>{{i.lname}}</td>
+</tr>
+<tr>
+<td>employeeid:</td><td>{{i.eid}}</td>
+</tr>
+<tr>
+<td>role:</td><td>{{i.role}}</td>
+</tr>
+<tr>
+<td>project:</td><td>{{i.project}}</td>
+</tr>
+<tr>
+<td>status:</td><td>{{i.status}}</td>
+</tr>
+<tr>
+<td>comments:</td><td>{{i.comments}}</td>
+</tr>
+
+</table>
+</div>
+<br>
+
+<div ng-show="ngtasklist">
+<table  ng-repeat="i in tasklistind" align="center">
+<tr>
+<td><b>TaskList:</b></td>
+</tr>
+<tr>
+<td>emp name:</td><td>{{i.eid}}</td>
+</tr>
+<tr>
+<td>project:</td><td>{{i.project}}</td>
+</tr>
+<tr>
+<td>task:</td><td>{{i.gettask}}</td>
+</tr>
+<tr>
+<td>assignedby:</td><td>{{i.asignedby}}</td>
+</tr>
+<tr>
+<td>status:</td><td>{{i.status}}</td>
+</tr>
+<tr>
+<td>comments:</td><td>{{i.comments}}</td>
+</tr>
+<tr>
+<td></td><td><button ng-click="StatusUp()">update status/comments</button></td>
+</tr>
+</table>
+<div ng-show="ngtaskind">
+<table align="center">
+<tr>
+<td>status:</td><td><input type="text" ng-model="statuss" placeholder="update status" size="24"/></td>
+</tr>
+<tr>
+<td>comments:</td><td><input type="text" ng-model="commentss" placeholder="update comment" size="24"/>
+</td>
+</tr>
+<tr>
+<td></td>
+<td><button ng-click="Comments()">comment</button></td>
+</tr>
+</table>
+</div>
+</div>
+
+
+
+
+</div>
