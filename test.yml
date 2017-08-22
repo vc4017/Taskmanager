@@ -1,0 +1,17 @@
+---
+resources:
+- name: taskmanager
+  type: git
+  source:
+    uri: https://github.com/vc4017/Taskmanager.git
+    branch: master
+
+jobs:
+- name: unit-tests
+  serial: true
+  public: true
+  plan:
+  - get: myapp
+    trigger: true
+  - task: run-unit-tests
+    file: Taskmanager/unit-tests.yml
