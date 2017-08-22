@@ -11,7 +11,7 @@ jobs:
   serial: true
   public: true
   plan:
-  - get: myapp
+  - get: taskmanager
     trigger: true
   - task: run-unit-tests
     file: Taskmanager/unit-tests.yml
