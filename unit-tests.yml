@@ -11,4 +11,4 @@ inputs:
 - name: Taskmanager
 
 run:
-  path: Taskmanager/run-unit-tests
+  path: run-unit-tests
