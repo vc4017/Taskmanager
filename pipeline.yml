@@ -22,7 +22,7 @@ jobs:
             type: docker-image
             source: {repository: node, tag: "6" }
           inputs:
-            - name: taskmanager
+            - name: Taskmanager
               path: .
           run:
             path: npm
@@ -35,7 +35,7 @@ jobs:
             type: docker-image
             source: {repository: node, tag: "6" }
           inputs:
-            - name: taskmanager
+            - name: Taskmanager
               path: .
           run:
             path: npm
