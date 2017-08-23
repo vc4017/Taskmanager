@@ -39,7 +39,7 @@ jobs:
               path: .
           run:
             path: npm
-            args: [ install-test ]
+            args: [ test ]
 - name: build-docker-image
   public: true
   serial: true
