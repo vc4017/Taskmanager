@@ -2,17 +2,52 @@
 groups:
 - name: main
   jobs:
+  - test
   - build-docker-image
   - job-deploy-app
 
 jobs:
 
+- name: test
+  serial: true
+  disable_manual_trigger: false
+  plan:
+      - get: Taskmanager
+        trigger: true
+
+      - task: npm-install
+        config:
+          platform: linux
+          image_resource:
+            type: docker-image
+            source: {repository: node, tag: "6" }
+          inputs:
+            - name: taskmanager
+              path: .
+          run:
+            path: npm
+            args: [ install ]
+
+      - task: npm-test
+        config:
+          platform: linux
+          image_resource:
+            type: docker-image
+            source: {repository: node, tag: "6" }
+          inputs:
+            - name: taskmanager
+              path: .
+          run:
+            path: npm
+            args: [ install-test ]
 - name: build-docker-image
   public: true
   serial: true
   plan:
   - get: Taskmanager
     trigger: true
+    passed:
+       - test
   - put: docker-image
     params:
       build: Taskmanager
