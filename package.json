@@ -1,9 +1,6 @@
 {
   "name": "taskmanager",
   "version": "1.0.0",
-  "scripts": {
-    "test": "mocha"
-  }
   "description": "",
   "main": "server.js",
   "dependencies": {
@@ -13,7 +10,8 @@
   },
   "devDependencies": {},
   "scripts": {
-        "start": "node server.js"
+    "test": "mocha",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC"
