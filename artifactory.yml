@@ -35,7 +35,7 @@ jobs:
           echo "This is my file content." > ./build/myapp-$(date +"%Y%m%d%H%S").txt
           find .
   - put: artifactory-repository
-    params: { file: ./build/taskmanager-*.zip }
+    params: { file: ./build/myapp-*.txt }
 
 - name: 2-trigger-when-new-file-is-added-to-artifactory
   plan:
